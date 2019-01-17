@@ -1,0 +1,49 @@
+오픈소스SW 프로젝트
+(나인섭 교수님)
+컴퓨터공학과 20144719 안유상
+
+1. 주제
+뉴욕 택시 탑승 및 하차 위치를 기준으로 요금을 예측
+
+2. 필요성 및 기대효과
+택시 공개 데이터를 이용해 택시요금을 예측하여 어디로 이동할 때
+미리 택시 요금을 알 수 있어서 대중교통 이용에 좀 더 펀의성을 제공
+
+3. 개발 환경 및 언어
+Window 10 - Anaconda 4.5.12(Python 3.7) - Jupyter Notebook
+
+4. 데이터필드
+key = (string)각 행을 구별하는 날짜와 시간
+pickup_datetime  = (timestamp)택시가 언제 출발하였는지를 나타내는 값
+pickup_longitude = (float)택시 타는 곳의 경도 좌표
+pickup_latitude = (float)택시 타는 곳의 위도 좌표
+dropoff_longitude = (float)택시 내리는 곳의 경도 좌표
+dropoff_latitude = (float)택시 내리는 곳의 위도 좌표
+passenger_count = (integer)택시를 타는 승객의 수
+
+5. 목표
+fare_amount = (float)택시 비용의 달러 금액
+RMSE(평균 제곱근 오차)를 낮추는것
+
+6. 기존 연구
+-Tensorflow 사용
+-XGBoost 사용
+-LightGBM 사용
+-구글 지도(이미지)를 통해 두 지점 간의 가장 짧은 경로를 추가
+-구글 지도(이미지)를 통해 각 도시의 택시들의 분포도를 추가
+
+7. 제안 방법
+-교육데이터 읽기(NaN 데이터 및 필요없는 데이터 삭제)
+-교육데이터 훈련
+-테스트데이터 예측(fare_amount 예측)
+
+8. 개선 방법
+기존 분석은 데이터(55,423,855)의 20%만 사용중
+=> 모든 데이터 사용시 기능 향상(5.74 -> 5.71)
+
+9. 고찰
+오픈소스SW(Tensorflow, XGBoost)의 사용에 있어서 함수 이용의 어려움
+=> 분석 안되는 커널들이 많음 => 개선의 어려움
+
+
+https://www.kaggle.com/c/new-york-city-taxi-fare-prediction
